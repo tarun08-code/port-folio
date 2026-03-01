@@ -13,7 +13,7 @@ export default function Footer() {
 
           <div className="flex gap-6">
             <a
-              href="https://github.com"
+              href="https://github.com/tarun08-code"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transform hover:scale-110 transition-all duration-300"
@@ -22,20 +22,13 @@ export default function Footer() {
               <Github size={24} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/dineshtarun-g-999140338/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transform hover:scale-110 transition-all duration-300"
               aria-label="LinkedIn"
             >
               <Linkedin size={24} />
-            </a>
-            <a
-              href="mailto:dineshtarun@example.com"
-              className="text-gray-400 hover:text-white transform hover:scale-110 transition-all duration-300"
-              aria-label="Email"
-            >
-              <Mail size={24} />
             </a>
           </div>
         </div>

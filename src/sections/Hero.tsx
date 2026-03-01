@@ -30,21 +30,18 @@ export default function Hero() {
           <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-12 animate-slide-up-delay-2">
             Passionate about building scalable cloud infrastructure and automating deployment
             pipelines. Experienced in modern web technologies, containerization, and continuous
-            integration. Always eager to learn and implement cutting-edge DevOps practices.
+            integration. Always eager to learn and implement cutting-edge DevOps & Cloud practices.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 mb-12 animate-slide-up-delay-3">
             <Button variant="primary" onClick={() => scrollToSection('projects')}>
               View Projects
             </Button>
-            <Button variant="secondary" onClick={() => scrollToSection('contact')}>
-              Contact Me
-            </Button>
           </div>
 
           <div className="flex justify-center gap-6 animate-slide-up-delay-4">
             <a
-              href="https://github.com"
+              href="https://github.com/tarun08-code"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transform hover:scale-110 transition-all duration-300"
@@ -53,20 +50,13 @@ export default function Hero() {
               <Github size={28} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/dineshtarun-g-999140338/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transform hover:scale-110 transition-all duration-300"
               aria-label="LinkedIn"
             >
               <Linkedin size={28} />
-            </a>
-            <a
-              href="mailto:dineshtarun@example.com"
-              className="text-gray-400 hover:text-white transform hover:scale-110 transition-all duration-300"
-              aria-label="Email"
-            >
-              <Mail size={28} />
             </a>
           </div>
         </div>
