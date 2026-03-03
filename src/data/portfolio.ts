@@ -92,10 +92,10 @@ export const experiences: Experience[] = [
   },
   {
     id: 3,
-    title: 'Full Stack Development Bootcamp',
-    organization: 'Code Academy',
-    period: '2023',
-    description: 'Intensive program covering modern web development technologies including React, Node.js, MongoDB, and RESTful API design.'
+    title: 'Software Engineer Intern',
+    organization: 'Kristu Jayanti Software Development Centre',
+    period: 'June 2025 - July 2026',
+    description: 'Led the front-end development team for the College ERP “Program Matrix” project, ensuring timely delivery and high-quality standards. Designed and implemented responsive UI components using Angular and Tailwind CSS, integrating them with backend services. Worked independently on critical modules for the ERP system, contributing to enhanced user experience and functionality. Utilized multiple modern web technologies to build scalable and maintainable solutions in collaboration with cross-functional teams.'
   }
 ];
 
