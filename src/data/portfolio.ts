@@ -100,16 +100,17 @@ export const experiences: Experience[] = [
 ];
 
 export const skills = [
-  'HTML',
-  'CSS',
-  'JavaScript',
-  'TypeScript',
-  'React',
-  'Angular',
-  'Node.js',
-  'MongoDB',
+  
   'AWS',
   'Docker',
   'Jenkins',
-  'Git'
+  'Git',
+  'GitHub',
+  'GCP',
+  'AZURE',
+  'PYTHON',
+  'JAVA',
+  'React',
+  'Angular',
+  'Node.js',
 ];
