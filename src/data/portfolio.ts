@@ -76,19 +76,27 @@ export const projects: Project[] = [
 ];
 
 export const experiences: Experience[] = [
+
+   {
+    id: 0,
+    title: 'Freelance Web Developer',
+    organization: 'Nellore Future Fitness Gym',
+    period: 'Jun-2025 - Oct-2025',
+    description: 'Developed and maintained responsive websites for local businesses using React, AWS, and TypeScript.'
+  },
   {
     id: 1,
-    title: 'AWS Certified Cloud Practitioner',
-    organization: 'Amazon Web Services',
-    period: '2024',
-    description: 'Completed comprehensive AWS certification covering cloud computing fundamentals, core services, security, and architecture best practices.'
+    title: 'Volunteer',
+    organization: 'Google',
+    period: 'Aug-2025 - Aug-2025',
+    description: 'Volunteered at Google AI Labs 2025 in August, collaborating with peers and gaining valuable insights through hands-on experience and interactive AI lab sessions.'
   },
   {
     id: 2,
-    title: 'DevOps Internship',
-    organization: 'Tech Solutions Inc.',
-    period: '2023 - 2024',
-    description: 'Worked on CI/CD pipeline automation, containerization, and cloud infrastructure management. Gained hands-on experience with Docker, Jenkins, and AWS services.'
+    title: 'Volunteer',
+    organization: 'Google Cloud',
+    period: 'July-2025 - July-2025',
+    description: 'Assisted in event operations, registration, and participant coordination, part of the organizing team for a Guinness World Record event; helped manage registration and crowd flow for ~2700 participants under one roof.'
   },
   {
     id: 3,
