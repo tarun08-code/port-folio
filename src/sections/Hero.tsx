@@ -19,7 +19,7 @@ export default function Hero() {
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 animate-slide-up">
             Hi, I'm{' '}
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Dineshtarun G :)
+              Seema G :)
             </span>
           </h1>
 
