@@ -3,6 +3,24 @@ import { Project, Experience } from '../types';
 export const projects: Project[] = [
   {
     id: 1,
+    title: 'Containerized CI/CD Pipeline for React Application using Jenkins & Docker',
+    description: 'Developed a containerized Jenkins CI/CD pipeline using Docker to automate the build and deployment of a React application. Integrated GitHub webhooks with Jenkins declarative pipelines to trigger automated workflows, building the application in a Node.js environment and deploying it to Netlify.',
+    image: 'https://i.pinimg.com/1200x/6e/dc/05/6edc05e872cf6d86de97232d1ac225ce.jpg',
+    techStack: ['AWS', 'DOCKER', 'TERRAFORM', 'DEVOPS', 'JENKINS'],
+    liveUrl: 'https://github.com/tarun08-code/jenkins-docker-pro',
+    githubUrl: 'https://github.com/tarun08-code'
+  },
+   {
+    id: 1,
+    title: 'End-to-End AWS CI/CD Pipeline using Terraform, Jenkins & Docker',
+    description: 'Designed and implemented an end-to-end DevOps pipeline on AWS using Terraform, Jenkins, and Docker to automate infrastructure provisioning, application build, and deployment. Integrated GitHub webhooks to trigger CI/CD workflows, enabling rapid and reproducible deployment of a containerized Flask + Nginx application.',
+    image: 'https://i.pinimg.com/1200x/99/78/66/9978663d39f807ecb0f3d32505561eb4.jpg',
+    techStack: ['AWS', 'GITHUB', 'TERRAFORM', 'DOCKER', 'JENKINS'],
+    liveUrl: 'https://github.com/tarun08-code/aws-cicd-terraform-project',
+    githubUrl: 'https://github.com/tarun08-code'
+  },
+  {
+    id: 1,
     title: 'kollege-chat-app (Deployed)',
     description: '🎓 K-ollege Chat — Connect, Collaborate & Learn Together! 💬 Join anonymous, department-based chats with 🤖 AI-powered moderation by Hugging Face to ensure a safe, respectful, and bully-free space for every student.',
     image: 'https://i.pinimg.com/736x/e8/bf/f2/e8bff2f056e72b084a90ad385936a3ea.jpg',
