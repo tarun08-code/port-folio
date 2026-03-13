@@ -3,6 +3,15 @@ import { Project, Experience } from '../types';
 export const projects: Project[] = [
   {
     id: 1,
+    title: 'GitHub Actions Self-Hosted Runner on AWS EC2 (CI/CD Automation)',
+    description: 'Deployed a self-hosted GitHub Actions runner on an AWS EC2 Ubuntu instance to execute CI workflows, authenticated using GitHub PAT, configured as a persistent Linux service, and integrated with GitHub Actions pipelines to automate builds while offloading jobs from GitHub-hosted runners.',
+    image: 'https://i.pinimg.com/1200x/6e/dc/05/6edc05e872cf6d86de97232d1ac225ce.jpg',
+    techStack: ['AWS', 'DOCKER', 'TERRAFORM', 'DEVOPS', 'JENKINS'],
+    liveUrl: 'https://github.com/tarun08-code/jenkins-docker-pro',
+    githubUrl: 'https://github.com/tarun08-code'
+  },
+  {
+    id: 1,
     title: 'Containerized CI/CD Pipeline for React Application using Jenkins & Docker',
     description: 'Developed a containerized Jenkins CI/CD pipeline using Docker to automate the build and deployment of a React application. Integrated GitHub webhooks with Jenkins declarative pipelines to trigger automated workflows, building the application in a Node.js environment and deploying it to Netlify.',
     image: 'https://i.pinimg.com/1200x/6e/dc/05/6edc05e872cf6d86de97232d1ac225ce.jpg',
