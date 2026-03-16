@@ -1,34 +1,45 @@
-import {
-  ArrowRight,
-  Play,
-  Target,
-  Crown,
-  Star,
-  Hexagon,
-  Triangle,
-  Command,
-  Ghost,
-  Gem,
-  Cpu,
-} from 'lucide-react';
+import { useState } from 'react';
+import { ArrowRight, Cloud, Code2, GitBranch, Gauge, Play, ShieldCheck, Star, Timer } from 'lucide-react';
 
-const CLIENTS = [
-  { name: 'Acme Corp', icon: Hexagon },
-  { name: 'Quantum', icon: Triangle },
-  { name: 'Command+Z', icon: Command },
-  { name: 'Phantom', icon: Ghost },
-  { name: 'Ruby', icon: Gem },
-  { name: 'Chipset', icon: Cpu },
-];
+const FOCUS_AREAS = [
+  {
+    id: 'cloud',
+    label: 'Cloud Infra',
+    icon: Cloud,
+    headline: 'Production-ready cloud setup',
+    summary: 'Scalable AWS-focused architecture with clean deployment workflows and monitoring in place.',
+    stack: ['AWS', 'Docker', 'Terraform'],
+    output: 'Reliable infrastructure with clear scaling paths.',
+  },
+  {
+    id: 'devops',
+    label: 'DevOps',
+    icon: GitBranch,
+    headline: 'CI/CD that ships confidently',
+    summary: 'Automated pipelines from commit to deploy with repeatable environments and fast feedback loops.',
+    stack: ['GitHub Actions', 'Jenkins', 'Linux'],
+    output: 'Faster releases with fewer delivery errors.',
+  },
+  {
+    id: 'fullstack',
+    label: 'Full Stack',
+    icon: Code2,
+    headline: 'Frontend + backend that stays maintainable',
+    summary: 'Modern React interfaces backed by clean APIs and practical architecture decisions.',
+    stack: ['React', 'TypeScript', 'Node.js'],
+    output: 'Smooth UX with stable, maintainable codebases.',
+  },
+] as const;
 
-const StatItem = ({ value, label }: { value: string; label: string }) => (
-  <div className="flex cursor-default flex-col items-center justify-center transition-transform hover:-translate-y-1">
-    <span className="text-xl font-bold text-zinc-100 sm:text-2xl">{value}</span>
-    <span className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400 sm:text-xs">{label}</span>
-  </div>
-);
+type FocusAreaId = (typeof FOCUS_AREAS)[number]['id'];
 
 export default function HeroSection() {
+  const [activeFocus, setActiveFocus] = useState<FocusAreaId>('cloud');
+  const [deliveryIntensity, setDeliveryIntensity] = useState(72);
+  const currentFocus = FOCUS_AREAS.find((item) => item.id === activeFocus) ?? FOCUS_AREAS[0];
+  const turnaroundWeeks = Math.max(2, Math.round((120 - deliveryIntensity) / 18));
+  const reliabilityScore = Math.min(99, Math.round(86 + deliveryIntensity / 7));
+
   return (
     <section id="home" className="relative w-full overflow-hidden bg-[#060b12] font-sans text-white">
       <style>{`
@@ -36,16 +47,9 @@ export default function HeroSection() {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes marquee {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
         .animate-fade-in {
           animation: fadeSlideIn 0.9s ease-out forwards;
           opacity: 0;
-        }
-        .animate-marquee {
-          animation: marquee 38s linear infinite;
         }
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
@@ -120,76 +124,90 @@ export default function HeroSection() {
           </div>
 
           <div className="space-y-6 lg:col-span-5 lg:mt-12">
-            <div className="animate-fade-in delay-500 relative overflow-hidden rounded-3xl border border-white/15 bg-white/[0.06] p-8 shadow-[0_35px_80px_-45px_rgba(34,211,238,0.45)] backdrop-blur-md">
+            <div className="animate-fade-in delay-500 relative overflow-hidden rounded-3xl border border-white/15 bg-white/[0.06] p-7 shadow-[0_35px_80px_-45px_rgba(34,211,238,0.45)] backdrop-blur-md">
               <div className="pointer-events-none absolute right-0 top-0 -mr-16 -mt-16 h-64 w-64 rounded-full bg-cyan-200/10 blur-3xl" />
-
               <div className="relative z-10">
-                <div className="mb-8 flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-cyan-200/35">
-                    <Target className="h-6 w-6 text-cyan-100" />
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold tracking-tight text-zinc-100">150+</div>
-                    <div className="text-sm text-zinc-300">Projects Delivered</div>
-                  </div>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-100/80">Interactive Focus</p>
+                <h3 className="mt-2 text-2xl font-bold text-zinc-100">Choose What You Want Built</h3>
+
+                <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-3">
+                  {FOCUS_AREAS.map((area) => {
+                    const AreaIcon = area.icon;
+                    const isActive = area.id === activeFocus;
+
+                    return (
+                      <button
+                        key={area.id}
+                        onClick={() => setActiveFocus(area.id)}
+                        className={`rounded-xl border px-3 py-2 text-left transition-all ${
+                          isActive
+                            ? 'border-cyan-200/50 bg-cyan-400/15 text-cyan-100'
+                            : 'border-white/15 bg-white/[0.04] text-zinc-300 hover:border-cyan-200/30 hover:bg-white/[0.08]'
+                        }`}
+                      >
+                        <AreaIcon className="mb-1.5 h-4 w-4" />
+                        <span className="text-xs font-semibold tracking-wide">{area.label}</span>
+                      </button>
+                    );
+                  })}
                 </div>
 
-                <div className="mb-8 space-y-3">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-zinc-300">Client Satisfaction</span>
-                    <span className="font-semibold text-cyan-100">98%</span>
-                  </div>
-                  <div className="h-2 w-full overflow-hidden rounded-full bg-zinc-800/40">
-                    <div className="h-full w-[98%] rounded-full bg-gradient-to-r from-cyan-200 to-amber-200" />
-                  </div>
-                </div>
+                <div className="mt-5 rounded-2xl border border-white/10 bg-[#0a1422]/70 p-5">
+                  <h4 className="text-lg font-bold text-zinc-100">{currentFocus.headline}</h4>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-300">{currentFocus.summary}</p>
 
-                <div className="mb-6 h-px w-full bg-white/10" />
-
-                <div className="grid grid-cols-3 gap-4 text-center">
-                  <StatItem value="5+" label="Years" />
-                  <div className="mx-auto h-full w-px bg-white/10" />
-                  <StatItem value="24/7" label="Support" />
-                  <div className="mx-auto h-full w-px bg-white/10" />
-                  <StatItem value="100%" label="Quality" />
-                </div>
-
-                <div className="mt-8 flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-1.5 rounded-full border border-cyan-200/25 bg-cyan-500/10 px-3 py-1 text-[10px] font-semibold tracking-wide text-cyan-100">
-                    <span className="relative flex h-2 w-2">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
-                      <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
-                    </span>
-                    ACTIVE
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {currentFocus.stack.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-amber-200/35 bg-amber-300/10 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-amber-100"
+                      >
+                        {item}
+                      </span>
+                    ))}
                   </div>
-                  <div className="inline-flex items-center gap-1.5 rounded-full border border-amber-200/30 bg-amber-400/10 px-3 py-1 text-[10px] font-semibold tracking-wide text-amber-100">
-                    <Crown className="h-3 w-3 text-amber-300" />
-                    PREMIUM
+
+                  <div className="mt-4 rounded-xl border border-cyan-200/20 bg-cyan-400/10 px-3 py-2 text-xs font-medium text-cyan-100">
+                    Outcome: {currentFocus.output}
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="animate-fade-in delay-500 relative overflow-hidden rounded-3xl border border-white/15 bg-white/[0.06] py-8 backdrop-blur-md">
-              <h3 className="mb-6 px-8 text-sm font-semibold text-zinc-300">Trusted by Industry Leaders</h3>
+            <div className="animate-fade-in delay-500 relative overflow-hidden rounded-3xl border border-white/15 bg-white/[0.06] p-7 backdrop-blur-md">
+              <div className="relative z-10">
+                <div className="mb-4 flex items-center justify-between">
+                  <h3 className="text-sm font-semibold text-zinc-200">Delivery Tuner</h3>
+                  <span className="text-xs text-zinc-400">Interactive</span>
+                </div>
 
-              <div
-                className="relative flex overflow-hidden"
-                style={{
-                  maskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)',
-                  WebkitMaskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)',
-                }}
-              >
-                <div className="animate-marquee flex gap-12 whitespace-nowrap px-4">
-                  {[...CLIENTS, ...CLIENTS, ...CLIENTS].map((client, i) => (
-                    <div
-                      key={i}
-                      className="flex cursor-default items-center gap-2 opacity-70 transition-all hover:scale-105 hover:opacity-100"
-                    >
-                      <client.icon className="h-6 w-6 fill-current text-cyan-100" />
-                      <span className="text-lg font-bold tracking-tight text-zinc-100">{client.name}</span>
-                    </div>
-                  ))}
+                <input
+                  type="range"
+                  min={45}
+                  max={95}
+                  step={1}
+                  value={deliveryIntensity}
+                  onChange={(event) => setDeliveryIntensity(Number(event.target.value))}
+                  className="h-2 w-full cursor-pointer appearance-none rounded-full bg-zinc-700 accent-cyan-300"
+                  aria-label="Adjust delivery intensity"
+                />
+
+                <div className="mt-5 grid grid-cols-3 gap-3">
+                  <div className="rounded-xl border border-white/10 bg-[#0a1422]/70 p-3">
+                    <Gauge className="mb-1 h-4 w-4 text-cyan-200" />
+                    <p className="text-xs text-zinc-400">Execution</p>
+                    <p className="text-lg font-bold text-zinc-100">{deliveryIntensity}%</p>
+                  </div>
+                  <div className="rounded-xl border border-white/10 bg-[#0a1422]/70 p-3">
+                    <Timer className="mb-1 h-4 w-4 text-amber-200" />
+                    <p className="text-xs text-zinc-400">Turnaround</p>
+                    <p className="text-lg font-bold text-zinc-100">{turnaroundWeeks}w</p>
+                  </div>
+                  <div className="rounded-xl border border-white/10 bg-[#0a1422]/70 p-3">
+                    <ShieldCheck className="mb-1 h-4 w-4 text-cyan-200" />
+                    <p className="text-xs text-zinc-400">Reliability</p>
+                    <p className="text-lg font-bold text-zinc-100">{reliabilityScore}%</p>
+                  </div>
                 </div>
               </div>
             </div>
