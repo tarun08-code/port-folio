@@ -1,6 +1,6 @@
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Hero from './sections/Hero';
+import HeroSection from './components/ui/glassmorphism-trust-hero';
 import About from './sections/About';
 import Projects from './sections/Projects';
 import Experience from './sections/Experience';
@@ -8,9 +8,9 @@ import Contact from './sections/Contact';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-[#060b12] text-white">
       <Navbar />
-      <Hero />
+      <HeroSection />
       <About />
       <Projects />
       <Experience />

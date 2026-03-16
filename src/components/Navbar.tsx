@@ -15,16 +15,18 @@ export default function Navbar() {
   const navLinks = [
     { label: 'Home', id: 'home' },
     { label: 'About', id: 'about' },
-    { label: 'Projects', id: 'projects' }
+    { label: 'Projects', id: 'projects' },
+    { label: 'Experience', id: 'experience' },
+    { label: 'Contact', id: 'contact' },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-gray-900/95 backdrop-blur-sm z-50 shadow-lg">
+    <nav className="fixed left-0 right-0 top-0 z-50 border-b border-cyan-200/10 bg-[#06101b]/80 backdrop-blur-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <button
             onClick={() => scrollToSection('home')}
-            className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:from-blue-500 hover:to-purple-500 transition-all duration-300"
+            className="text-xl font-black tracking-tight text-white transition-opacity hover:opacity-80 sm:text-2xl"
           >
             Dineshtarun G
           </button>
@@ -34,7 +36,7 @@ export default function Navbar() {
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="text-gray-300 hover:text-white transition-colors duration-300 font-medium"
+                className="text-sm font-semibold tracking-wide text-zinc-300 transition-colors duration-300 hover:text-cyan-300"
               >
                 {link.label}
               </button>
@@ -43,7 +45,8 @@ export default function Navbar() {
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-gray-300 hover:text-white transition-colors"
+            className="rounded-lg p-1 text-gray-300 transition-colors hover:text-cyan-300 md:hidden"
+            aria-label="Toggle navigation menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -51,13 +54,13 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-gray-800 border-t border-gray-700">
+        <div className="border-t border-cyan-200/10 bg-[#0a1624]/95 md:hidden">
           <div className="px-4 py-4 space-y-3">
             {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="block w-full text-left text-gray-300 hover:text-white transition-colors duration-300 font-medium py-2"
+                className="block w-full rounded-lg py-2 text-left text-sm font-semibold text-zinc-300 transition-colors duration-300 hover:text-cyan-300"
               >
                 {link.label}
               </button>
