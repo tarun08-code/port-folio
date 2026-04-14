@@ -14,8 +14,4 @@ bro feetival goijg on and i need holidsy
 
 again in holiday 
 
-second commit 
-
-made some chages and done with thenmm
-
-made some changes in files 
+read me edit agaij 
